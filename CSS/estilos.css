@@ -1,0 +1,530 @@
+@import url('reset.css');
+@import url('fuentes.css');
+
+/*---------------- Estilos Generales (BODY)------------------*/
+body{
+    background:#2d2d2d;
+    font-family: Arial, Helvetica, Sans-serif;
+}
+
+a{ text-decoration:none; color:#fff; } /*para sacarle el subrayado*/
+a:hover{ text-decoration:underline; } /*para que se subraye al pasar por encima*/
+
+#wrap{
+    width:960px;
+    margin:auto; /*para centrar todo el contenido*/
+    clear:both; /*para que quede bien cuando le meta un float lef al header (solo para headers que ocupan 100%)*/
+}
+
+/* ------ Diseño del scrollbar del body------*/
+
+body::-webkit-scrollbar{  /*Diseño del scrollbar*/
+    width: 15px;
+    height:15px;
+    /*background: #fff;*/
+    border-radius:7.5px;
+}
+ 
+body::-webkit-scrollbar-thumb{   /*Barra*/
+    /*Fondo: Codigo Copiado del editor de gradientes https://colorzilla.com/gradient-editor/#3e7cf9+0,d4e8f7+100*/
+    background: rgb(62,124,249); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(62,124,249,1) 0%, rgba(212,232,247,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e7cf9', endColorstr='#d4e8f7',GradientType=0 ); /* IE6-9 */
+    border-radius:7.5px;
+    border-right:2px solid #2d2d2d;
+    border-bottom:2px solid #2d2d2d;
+} 
+
+/*-------------- HEADER------------*/
+
+header{
+    width:100%;
+    float:left; /*para tirar el encabezado hacia la izquierda*/
+    
+    /*Fondo: Codigo Copiado del editor de gradientes https://www.colorzilla.com/gradient-editor/*/
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+    
+    box-shadow: 0px 3px 5px #000; /* sombreado del header*/
+        -moz-box-shadow: 0px 3px 5px #000; /* Para que se cargue en nav antiguos como mozilla */
+        -webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#subheader{
+    width:960px;  /* Limita el tamaño */
+    margin:auto;   /* centrado */
+}
+
+#logotipo{
+    float:left;   /*para tirar el logo hacia la izquierda*/
+    width:300px;  /* Limita el tamaño del logo */
+    padding: 10px 0px;  /* Separacion vertical*/
+}
+
+
+/*--------- MENU---------*/
+
+header #subheader nav {    
+    float:left; 
+    width: 660px;        /* 660 + 300 = 960 (total pagina)*/
+    padding: 50px 0px;  /* centrado vertical */
+    text-align: right;  /* tira el texto hacia la derecha */
+}
+
+header #subheader nav ul li{
+    display:inline;
+    font-family: sourcesans;
+}
+
+header #subheader nav ul li a{
+    color: #000;
+    font-size:18px;
+    padding: 10px; 
+    border-radius:2px;     /* Redondear la ventana del hover */
+        -moz-border-radius:2px;   /* Para que se cargue en mozilla */
+        -webkit-border-radius:2px; /* Para que se cargue en navegadores con webkit */
+}
+
+header #subheader nav ul li a:hover{
+    color: #fff;
+    background:#1798af;
+    text-decoration:none;  /* Se saca el subrayado*/
+}
+
+/*---------------------- MAIN-----------------------*/
+
+#main {
+    width:100%;
+    margin: 20px 0px 0px 0px; /*Separa el contenido del header solo superior*/
+    float:left;
+}
+
+/*--------- Slideshow---------*/
+
+#slideshow{
+    width: 920px;  /*Ancho del slideshow: 960-20-20 del borde*/
+    height: 300px;  /*Alto del slideshow*/
+    float:left;    /*alineado a la izquierda*/
+    /*background:#000;   /*simula la foto*/    
+    border:solid 20px #fff; /*20px de cada lado + Color del contorno*/
+    margin-bottom: 30px; /* separacion desde el fondo hasta el próximo texto*/
+    border-radius: 10px; /* bordes redondeados*/
+        -moz-border-radius: 10px;  /* para navegadores viejos*/
+        -webkit-border-radius: 10px;
+}
+
+.slidesjs-next.slidesjs-navigation {  /*texto de next*/
+ visibility: hidden;   /*Invisibiliza el texto "next"*/
+ color: white;
+ padding: 5px;
+}
+
+.slidesjs-previous.slidesjs-navigation {   /*texto de previous*/
+ visibility: hidden;   /*Invisibiliza el texto "previous"*/
+ color: white;
+ padding: 5px;
+}
+
+.slidesjs-pagination {    /*La paginacion se refiere a los botones circulares para desplazar imagenes*/
+ margin: 20px auto;     /*el "auto" es para centrar los botones*/
+ width: 150px;        /*Ancho. Si se pone menos y se suman fotos hace un salto de linea. Queda mal*/
+}
+
+.slidesjs-pagination li {  /*La paginacion equivale a un "ul"*/
+ float: left;
+ margin: 0px 5px;
+ list-style: none;
+ background-color: white;
+ border-radius: 10px;
+}
+
+.slidesjs-pagination li a {
+ display: block;
+ width: 12px;
+ height: 0px;
+ padding-top: 12px;
+ float: left;
+ overflow: hidden;
+ border-radius:10px;  
+    -moz-border-radius:10px;   
+    -webkit-border-radius:10px;
+}
+
+.slidesjs-pagination li .active { /*funcion del slidejs para que los botones se pinten al pulsarlos*/
+ background-color: #1798af;
+}
+
+#slideshow img {
+ width: 920px;
+ height: 300px;
+}
+    
+/*------ Quienes somos -------*/
+
+#quienessomos{
+    width: 920px;   /*960-20-20 del margen*/
+    float:left;
+    padding: 20px;   /*20px de cada lado*/
+    /*Fondo: Codigo Copiado del editor de gradientes https://colorzilla.com/gradient-editor/#3e7cf9+0,d4e8f7+100*/
+    background: rgb(62,124,249); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(62,124,249,1) 0%, rgba(212,232,247,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e7cf9', endColorstr='#d4e8f7',GradientType=0 ); /* IE6-9 */
+
+    margin: 20px 0px; /* margen superior e inferior */
+    border-radius: 10px; /* bordes redondeados*/
+        -moz-border-radius: 10px;  /* para navegadores viejos*/
+        -webkit-border-radius: 10px;
+    box-shadow: 0px 2px 2px #000;   
+        -moz-box-shadow: 0px 2px 2px #000;   
+        -webkit-box-shadow: 0px 2px 2px #000;     
+}
+
+#quienessomos article h2{
+    font-family: sourcesans-light;
+    color: #000;    
+    font-size:30px;
+    font-weight: bold;
+    margin-bottom:20px; /* Separacion del titulo con el texto*/
+}
+
+#quienessomos article{
+    color: #000;
+    line-height: 27px;        
+}
+
+
+/*--------- PRESTACIONES  ----------*/
+
+#prestaciones{
+    width: 920px;   /*960-20-20 del margen*/
+    float:left;
+    padding: 20px;   /*20px de cada lado*/
+    /*Fondo: Codigo Copiado del editor de gradientes https://colorzilla.com/gradient-editor/#3e7cf9+0,d4e8f7+100*/
+    background: rgb(62,124,249); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(62,124,249,1) 0%, rgba(212,232,247,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e7cf9', endColorstr='#d4e8f7',GradientType=0 ); /* IE6-9 */
+
+    margin: 20px 0px; /* margen superior e inferior */
+    border-radius: 10px; /* bordes redondeados*/
+        -moz-border-radius: 10px;  /* para navegadores viejos*/
+        -webkit-border-radius: 10px;
+    box-shadow: 0px 2px 2px #000;   
+        -moz-box-shadow: 0px 2px 2px #000;   
+        -webkit-box-shadow: 0px 2px 2px #000;     
+}
+    
+#prestaciones article h2{
+    font-family: sourcesans-light;
+    color: #000;
+    font-size:30px;
+    font-weight: bold;
+    margin-bottom:20px; /* Separacion del titulo con el texto*/
+}
+
+#prestaciones article{
+    color: #000;
+    line-height: 27px;        
+}
+
+#prestaciones article p{
+    margin-bottom: 10px;           
+}
+
+#prestaciones article div{
+    width: 460px;
+    float:left;   
+    margin-bottom: 15px;
+}
+
+#prestaciones img{
+    width: 30px;
+    height: 30px;
+    float:left;        
+}
+
+#prestaciones h3{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px; 
+    padding: 0px 40px;
+}
+
+#prestaciones ul{    
+    list-style:url(../Imagenes/iconos/icono-MGL-10.png) disc; /*viñeta personalizada y si no encuentra la foto viñeta circular}*/
+    margin-left: 55px;          
+}
+
+/*--------------- ANTECEDENTES ------------*/
+
+#antecedentes{
+    width: 700px;  /* Tamaño de nuestros articulos (sobraria 260 para el sidebar)*/
+    height: 450px;/* Alto maximo, a partir del cual se hara un scroll*/
+    overflow-y:auto; /*funcion scroll bar vertical automatico*/
+    float:left; 
+    margin-bottom: 20px;
+}
+    
+#antecedentes article{
+    float:left;
+    margin-bottom: 20px; /*espaciado entre articulos*/
+}
+
+#antecedentes .titulo{
+    font-size: 22px;
+    font-family: sourcesans;
+    color:#fff;   
+    margin-bottom: 10px; 
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#antecedentes article .subtitulo{
+    font-size: 18px;
+    color: #8c8c8c;
+    margin-bottom: 15px;    
+}
+
+#antecedentes article .fotoantecedente{
+    width: 220px; 
+    float: left;   
+    margin: 0px 10px 10px 0px;
+}
+
+#antecedentes article > p{
+    width: 680px;        /*se dejan 20 px para que el scrollbar no quede por encima*/
+    color:#8c8c8c;
+    font-size: 15px;
+    text-align: justify;    /*texto "justificado"*/
+    line-height: 20px;     /*Interlineado*/
+}
+
+
+/* -------- Diseño del scrollbar de antecedentes --------*/
+
+#antecedentes::-webkit-scrollbar{  /*Diseño del scrollbar*/
+    width: 10px;
+    /*background: #fff;*/
+    border-radius:5px;   
+    
+}
+ 
+#antecedentes::-webkit-scrollbar-thumb{   /*Barra*/
+    /*Fondo: Codigo Copiado del editor de gradientes https://colorzilla.com/gradient-editor/#3e7cf9+0,d4e8f7+100*/
+    background: rgb(62,124,249); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(62,124,249,1) 0%, rgba(212,232,247,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e7cf9', endColorstr='#d4e8f7',GradientType=0 ); /* IE6-9 */
+    border-radius:5px;
+} 
+
+
+/*----------------------- ASIDE -----------------------*/
+
+aside{
+    width:220px;         /*220 + 20 margin left + 10+10 padding = 260*/
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    /*background:#4d78b3;*/
+    /*Fondo: Codigo Copiado del editor de gradientes https://colorzilla.com/gradient-editor/#3e7cf9+0,d4e8f7+100*/
+    background: rgb(62,124,249); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(62,124,249,1) 0%, rgba(212,232,247,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(62,124,249,1) 0%,rgba(212,232,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e7cf9', endColorstr='#d4e8f7',GradientType=0 ); /* IE6-9 */
+
+    padding: 10px 10px 0px 10px;    
+    border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    box-shadow: 0px 2px 2px #000;
+        -moz-box-shadow: 0px 2px 2px #000;
+        -webkit-box-shadow: 0px 2px 2px #000;
+}
+
+/*-------------- WIDGET --------------*/
+
+aside .widget{
+    margin-bottom:10px;
+    float:left;
+    max-height:210px;
+}
+
+aside .widget > h3{
+    background:#fff;
+    color: #4d78b3;
+    width: 220px;
+    padding:10px 0px;
+    text-align: center;
+    font-weight:bold;
+    margin-bottom: 10px;
+    border-radius: 5px; /* bordes redondeados*/
+        -moz-border-radius: 5px;  /* para navegadores viejos*/
+        -webkit-border-radius: 5px;
+}
+
+aside .widget a {color: #fff;}
+
+aside .widget ul {    
+    list-style:url(../Imagenes/iconos/icono-MGL-10.png) disc; /*viñeta personalizada y si no encuentra la foto viñeta circular}*/
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+aside .widget ul li {   
+    line-height: 25px; 
+    /*color:#8c8c8c;*/
+}
+/*--------- CON QUIEN TRABAJAMOS --------*/
+
+
+.fototrabajamos{
+    width: 220px;
+}
+/* o lo que es igual: aside .widget img{width:220px;}*/
+
+/*----------------------- FOOTER -----------------------*/
+
+footer{
+    width: 100%;
+    float: left;
+    clear:both;  /* Elimina los estilos para que se posicione correctamente*/
+    border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    box-shadow: 0px 2px 2px #000;
+        -moz-box-shadow: 0px 2px 2px #000;
+        -webkit-box-shadow: 0px 2px 2px #000;
+    /*Fondo: Codigo Copiado del editor de gradientes https://www.colorzilla.com/gradient-editor/*/
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+}
+
+footer section{
+    width:440px; /* 440 + 20 + 20 = 480 (mitad de 960) porque son 2 secciones*/
+    float:left;
+    padding:10px 20px;
+}
+
+/*--------- CONTACTANOS ---------*/
+
+footer #contactanos{
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 16px;
+    color:#8c8c8c;
+    /*text-align: justify;*/
+    /*line-height:20px;   */ 
+}
+
+footer #contactanos h3{
+    font-family:sourcesans-light;
+    font-size:22px;
+    font-weight: bold;
+    color:#000;
+    margin-bottom: 5px;
+}
+
+footer #contactanos img{
+    width:20px;
+    height:20px;
+    float:left;
+}
+
+footer #contactanos .iconos{
+    width:30px;
+    height:20px;
+    float:left;
+    margin-bottom: 15px;
+}
+
+footer #contactanos .info{
+    width:410px;         /*440-30 de los iconos*/
+    height:20px;
+    float:left;
+    margin-bottom: 15px;
+}
+
+footer #contactanos .info:hover{    
+    color:blue;
+}
+
+footer #contactanos ul li{
+    margin-bottom: 20px;
+}
+    
+
+/*-------- REDES SOCIALES --------*/
+
+footer #redes h3{
+    font-family:sourcesans-light;
+    font-size:22px;
+    font-weight: bold;
+    color:#000;
+    margin-bottom: 5px;
+}
+
+footer #redes > div{
+    width: 220px;
+    height: 50px;
+    float:left;
+    background: #ff8000;
+    opacity: 0.7; 
+}
+
+footer #redes > div a{
+    width: 220px;
+    height: 50px;
+    display: inline-block;  
+}
+
+footer #redes .email{
+    background:url(../Imagenes/redes/logo-mail.png);
+    margin-bottom:0px;
+}
+
+footer #redes .instagram{
+    background:url(../Imagenes/redes/logo-instagram.png);  
+    margin-bottom:0px;
+}
+
+footer #redes .facebook{
+    background:url(../Imagenes/redes/logo-facebook.png);   
+}
+
+footer #redes .linkedin{
+    background:url(../Imagenes/redes/logo-linkedin.png);   
+}
+
+footer #redes > div:hover{
+    opacity:1;      /* Para que se aclare cuando pasas el mouse por encima*/
+}
+
+
+/*--------------------- Copyright --------------------*/
+
+#copyright{
+   float:left;
+   width:960px;
+   margin:10px 0px;
+}
+
+#copyright p{
+    text-align:center;
+    font-size:14px;
+    color:#fff;
+    font-family:Arial,Helvetica, Sans-serif;
+}
